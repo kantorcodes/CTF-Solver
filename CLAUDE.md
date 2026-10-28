@@ -323,9 +323,9 @@ executor = CommandExecutor(command, timeout=600)  # 10 minutes for specific tool
 - `readOnlyHint: True` - Tool doesn't modify system state (reconnaissance)
 - `readOnlyHint: False` - Tool may modify state (exploitation)
 - `destructiveHint: True` - Tool can compromise systems (use with caution)
-- `destructiveHint: False` - Tool is safe for information gathering
-- `idempotentHint: True` - Same input produces same output
-- `idempotentHint: False` - Output may vary (time-based, randomized)
+- `destructiveHint: False` - Tool is not expected to make destructive changes; it may still modify state
+- `idempotentHint: True` - Repeating the same call has no additional effect on the environment
+- `idempotentHint: False` - Repeated calls may have additional effects; varying output alone is not decisive
 
 **Example Classification**
 - `nmap_scan`: readOnly=True, destructive=False, idempotent=True (safe scanning)
